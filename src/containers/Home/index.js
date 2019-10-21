@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
+import Chart from 'components/chart'
+
 const apiKey = 'OmI3MDUyZWE3OTk0YjRjZGE2NTA4ZWZlYTU1MzI4ODEw'
 
 export default function Home(props){
@@ -12,9 +14,10 @@ export default function Home(props){
       .then(function (response) {
         console.log(response)
         setStockInfo(response.data)
-        return response
+        return response.data
       })
       .catch(function (error) {
+        console.log("error", error)
         setStockInfo({
           'error': 404
         })
@@ -28,6 +31,11 @@ export default function Home(props){
     getStockInfo(stockParam)
   }, [])
 
-  return(<div></div>)
+  console.log(stockInfo)
+  return(
+    <div>
+      <Chart prices={stockInfo} />
+    </div>
+  )
     
 }
