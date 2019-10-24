@@ -1,0 +1,20 @@
+.article_info {
+  padding: 10px 5px 10px 15px;
+  text-align: left;
+}
+
+.card {
+  border-style: solid;
+  border-width: 1px;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px auto;
+  max-width: 70%;
+  min-width: 700px;
+}
+
+img {
+  margin: 5px 5px;
+  width: 250px;
+  height: 250px;
+}
