@@ -1,0 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700,800);
+
+.homeWrapper {
+  font-family: 'Raleway', Arial, sans-serif;
+}
+
+h1 {
+  text-align: left;
+  margin: auto;
+  margin-left: 12%;
+  font-size: 50px;
+}
+
+h2 {
+  text-align: left;
+  margin: 30px auto 0px 15%;
+  font-size: 40px;
+}

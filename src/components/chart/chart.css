@@ -1,0 +1,14 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700,800);
+
+.chartdiv {
+  width: 80%;
+  height: 100%;
+  margin: auto;
+}
+
+.chartContainer {
+  width: 100%;
+  margin: auto;
+  height: 500px;
+  font-family: 'Raleway', Arial, sans-serif;
+}

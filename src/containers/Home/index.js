@@ -5,6 +5,8 @@ import Chart from 'components/chart'
 import News from 'components/news'
 import Search from 'components/search'
 
+import './home.css'
+
 const apiKey = 'OmI3MDUyZWE3OTk0YjRjZGE2NTA4ZWZlYTU1MzI4ODEw'
 const newsApiKey = '6eb3d7551b3e432295b3537b87e9d2cf'
 
@@ -65,9 +67,11 @@ export default function Home(props){
   }, [tickerSym])
 
   return(
-    <div>
+    <div className='HomeWrapper'>
       <Search sendData={callbackFunction}/>
+      <h1>{tickerSym}</h1>
       <Chart prices={stockInfo} />
+      <h2>News</h2>
       <News feed={newsfeed} />
     </div>
   )
