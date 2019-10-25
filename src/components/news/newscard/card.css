@@ -1,20 +1,134 @@
-.article_info {
-  padding: 10px 5px 10px 15px;
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700,800);
+
+figure.snip1208 {
+  background-color: #ffffff;
+  color: #000000;
+  color: #fff;
+  font-family: 'Raleway', Arial, sans-serif;
+  font-size: 16px;
+  margin: 10px;
+  max-width: 310px;
+  min-width: 220px;
+  overflow: hidden;
+  position: relative;
   text-align: left;
+  width: 100%;
 }
 
-.card {
-  border-style: solid;
-  border-width: 1px;
-  display: flex;
-  justify-content: space-evenly;
-  margin: 20px auto;
-  max-width: 70%;
-  min-width: 700px;
+figure.snip1208 * {
+  -webkit-box-sizing: border-box;
+  -webkit-transition: all 0.2s ease;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
 }
 
-img {
-  margin: 5px 5px;
-  width: 250px;
-  height: 250px;
+figure.snip1208 img {
+  -webkit-transform-origin: 50% 100%;
+  -webkit-transition: all 0.4s ease;
+  max-width: 100%;
+  transform-origin: 50% 100%;
+  transition: all 0.4s ease;
+  vertical-align: top;
+}
+
+figure.snip1208 figcaption {
+  padding: 25px;
+  position: relative;
+}
+
+figure.snip1208 .date,
+figure.snip1208 i {
+  background-color: #1abc9c;
+  color: #fff;
+  left: 25px;
+  min-height: 60px;
+  min-width: 60px;
+  position: absolute;
+  text-align: center;
+  top: 25px;
+}
+
+figure.snip1208 .date {
+  -webkit-transition-delay: 0.2s;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition-delay: 0.2s;
+}
+
+figure.snip1208 .date span {
+  display: block;
+  line-height: 30px;
+}
+
+figure.snip1208 .date .month {
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+}
+
+figure.snip1208 i {
+  -webkit-transform: rotateY(-90deg);
+  -webkit-transition-delay: 0s;
+  font-size: 30px;
+  line-height: 60px;
+  transform: rotateY(-90deg);
+  transition-delay: 0s;
+}
+
+figure.snip1208 h3,
+figure.snip1208 p {
+  margin: 0;
+  padding: 0;
+}
+
+figure.snip1208 h3 {
+  color: #333333;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+figure.snip1208 p {
+  font-size: 0.8em;
+  line-height: 1.6em;
+  margin-bottom: 20px;
+}
+
+figure.snip1208 button {
+  background-color: #1abc9c;
+  border: medium none;
+  color: #ffffff;
+  font-size: 0.8em;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+figure.snip1208 a {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+figure.snip1208:hover img,
+figure.snip1208.hover img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+figure.snip1208:hover .date,
+figure.snip1208.hover .date {
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+
+figure.snip1208:hover button,
+figure.snip1208.hover button {
+  background-color: #117964;
 }
