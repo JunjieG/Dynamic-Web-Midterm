@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
+import './search.css'
+
 export default function Search({ sendData }) {
   const [query, setQuery] = useState('')
   const [typingTimeout, setSearchTimeout] = useState(0)
@@ -36,16 +38,21 @@ export default function Search({ sendData }) {
   }
 
   return (
-    <div onKeyDown={e => handleKeyDown(e)}>
-      <label className="search-label">
-        <input
-          type="text"
-          value={query}
-          onChange={e => onChangeHandler(e)}
-          id="search-input"
-          placeholder="Search..."
-        />
-      </label>
+    <div className='searchWrapper' onKeyDown={e => handleKeyDown(e)}>
+      <fieldset class='field-container'>
+        <label className="search-label">
+          <input
+            type='text'
+            value={query}
+            onChange={e => onChangeHandler(e)}
+            className='field'
+            placeholder="Search..."
+          />
+        </label>
+        <div class='icons-container'>
+          <div class='icon-search'></div>
+        </div>
+      </fieldset>
     </div>
   )
 }

@@ -7,7 +7,7 @@ import './chart.css'
 
 am4core.useTheme(am4themes_animated);
 
-export default function Chart( {prices} ) {
+export default function Chart( { prices, symbol } ) {
   var chart;
 
   useEffect(() => {
@@ -130,6 +130,7 @@ export default function Chart( {prices} ) {
 
   return (
     <div className='chartContainer'>
+      <div className='symName'>{symbol}</div>
       <div className='chartdiv'></div>
     </div>
   );

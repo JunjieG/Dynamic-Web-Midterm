@@ -58,20 +58,17 @@ export default function Home(props){
   }
 
   useEffect(() => {
-    let ticker = tickerSym
-    if (ticker === '') { // Use default value if ticker is empty
-      ticker = "AAPL"
+    if (tickerSym === '') { // Use default value if ticker is empty
+      setTickerSym('AAPL')
     }
-    getStockInfo(ticker)
-    getNewsfeed(ticker)
+    getStockInfo(tickerSym)
+    getNewsfeed(tickerSym)
   }, [tickerSym])
 
   return(
     <div className='HomeWrapper'>
       <Search sendData={callbackFunction}/>
-      <h1>{tickerSym}</h1>
-      <Chart prices={stockInfo} />
-      <h2>News</h2>
+      <Chart prices={stockInfo} symbol={tickerSym} />
       <News feed={newsfeed} />
     </div>
   )
