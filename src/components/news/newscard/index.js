@@ -4,7 +4,6 @@ import './card.css'
 export default function NewsCard({
   data = {}
 }) {
-  console.log('data', )
   var months = [
       'Jan', 'Feb', 'Mar', 'Apr', 'May',
       'Jun', 'Jul', 'Aug', 'Sep',
@@ -27,7 +26,7 @@ export default function NewsCard({
           </p>
           <button>read more</button>
         </figcaption>
-        <a href={data.url}></a>
+        <a href={data.url}> </a>
       </figure>
     </div>
   );
