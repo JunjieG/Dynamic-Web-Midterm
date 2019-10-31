@@ -1,38 +1,35 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
+import './chart.css'
+
 am4core.useTheme(am4themes_animated);
 
-class Chart extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      prices: {}
-    }
-  }
+export default function Chart( { prices, symbol } ) {
+  var chart;
 
-  componentDidUpdate() {
-    if (this.props.prices.stock_prices) {
-      console.log("prices", this.props.prices.stock_prices)
-      let chart = am4core.create("chartdiv", am4charts.XYChart);
+  useEffect(() => {
+    if (prices.stock_prices) {
+      chart = am4core.create("chartdiv", am4charts.XYChart);
+      chart.preloader.disabled = true;
       chart.padding(0, 15, 0, 15);
 
       let data = [];
-      for (let i = 0; i < this.props.prices.stock_prices.length; i++) {
+      for (let i = 0; i < prices.stock_prices.length; i++) {
         // for some reason date must be incremented by 1
-        let date = new Date(this.props.prices.stock_prices[i].date)
+        let date = new Date(prices.stock_prices[i].date)
         date = date.setDate(date.getDate() + 1)
 
         data.push({
-          "Adj Close": (this.props.prices.stock_prices[i].adj_close).toString(),
-          "Close": this.props.prices.stock_prices[i].close,
+          "Adj Close": (prices.stock_prices[i].adj_close).toString(),
+          "Close": prices.stock_prices[i].close,
           "Date": date,
-          "High": (this.props.prices.stock_prices[i].high).toString(),
-          "Low": (this.props.prices.stock_prices[i].low).toString(),
-          "Open": this.props.prices.stock_prices[i].open, 
-          "Volume": this.props.prices.stock_prices[i].volume,
+          "High": (prices.stock_prices[i].high).toString(),
+          "Low": (prices.stock_prices[i].low).toString(),
+          "Open": prices.stock_prices[i].open, 
+          "Volume": prices.stock_prices[i].volume,
         });
       }
 
@@ -128,22 +125,13 @@ class Chart extends Component {
       scrollbarX.marginBottom = 20;
       chart.scrollbarX = scrollbarX;
       scrollbarX.scrollbarChart.xAxes.getIndex(0).minHeight = undefined;
-
-      this.chart = chart;
     }
-  }
+  }, [prices])
 
-  componentWillUnmount() {
-    if (this.chart) {
-      this.chart.dispose();
-    }
-  }
-
-  render() {
-    return (
-      <div id="chartdiv" style={{ width: "100%", height: "500px" }}></div>
-    );
-  }
+  return (
+    <div className='chartContainer'>
+      <div className='symName'>{symbol}</div>
+      <div className='chartdiv'></div>
+    </div>
+  );
 }
-
-export default Chart;

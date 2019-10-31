@@ -5,6 +5,8 @@ import Chart from 'components/chart'
 import News from 'components/news'
 import Search from 'components/search'
 
+import './home.css'
+
 const apiKey = 'OmI3MDUyZWE3OTk0YjRjZGE2NTA4ZWZlYTU1MzI4ODEw'
 const newsApiKey = '6eb3d7551b3e432295b3537b87e9d2cf'
 
@@ -56,18 +58,17 @@ export default function Home(props){
   }
 
   useEffect(() => {
-    let ticker = tickerSym
-    if (ticker === '') { // Use default value if ticker is empty
-      ticker = "AAPL"
+    if (tickerSym === '') { // Use default value if ticker is empty
+      setTickerSym('AAPL')
     }
-    getStockInfo(ticker)
-    getNewsfeed(ticker)
+    getStockInfo(tickerSym)
+    getNewsfeed(tickerSym)
   }, [tickerSym])
 
   return(
-    <div>
+    <div className='HomeWrapper'>
       <Search sendData={callbackFunction}/>
-      <Chart prices={stockInfo} />
+      <Chart prices={stockInfo} symbol={tickerSym} />
       <News feed={newsfeed} />
     </div>
   )
