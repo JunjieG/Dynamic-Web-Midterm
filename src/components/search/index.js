@@ -14,7 +14,6 @@ export default function Search({ sendData }) {
     if (query !== '') {
       setSearchTimeout(
         setTimeout(function () {
-          console.log("query", query)
           sendData(query)
         }, 2000)
       )
@@ -30,16 +29,13 @@ export default function Search({ sendData }) {
       if (typingTimeout) {
         clearTimeout(typingTimeout);
       }
-      console.log('keyCode', 13)
       sendData(query)
-    } else {
-      console.log('keyCode', e.keyCode)
     }
   }
 
   return (
     <div className='searchWrapper' onKeyDown={e => handleKeyDown(e)}>
-      <fieldset class='field-container'>
+      <fieldset className='field-container'>
         <label className="search-label">
           <input
             type='text'
@@ -49,8 +45,8 @@ export default function Search({ sendData }) {
             placeholder="Search..."
           />
         </label>
-        <div class='icons-container'>
-          <div class='icon-search'></div>
+        <div className='icons-container'>
+          <div className='icon-search'></div>
         </div>
       </fieldset>
     </div>

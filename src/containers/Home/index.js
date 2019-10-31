@@ -26,7 +26,6 @@ export default function Home(props){
         return response.data
       })
       .catch(function (error) {
-        console.log("error", error)
         setStockInfo({
           'error': 404
         })
@@ -45,11 +44,9 @@ export default function Home(props){
           `apiKey=${newsApiKey}`)
       .then(function (response) {
         setNewsfeed(response.data)
-        console.log('feed', response.data)
         return response.data
       })
       .catch(function (error) {
-        console.log("error", error)
         setStockInfo({
           'error': 404
         })
