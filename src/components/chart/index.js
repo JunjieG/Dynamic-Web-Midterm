@@ -128,6 +128,19 @@ export default function Chart( { prices, symbol } ) {
     }
   }, [prices])
 
+  if (prices.error === 404) {
+    if (chart) {
+      
+    }
+    return (
+      <div className='chartContainer'>
+        <div className='symName'>{symbol}</div>
+        <div className='chartdiv' style={{ display: 'none' }}></div>
+        <div className='errorMsg'>Ticker can't be found :(</div>
+      </div>
+    )
+  }
+
   return (
     <div className='chartContainer'>
       <div className='symName'>{symbol}</div>

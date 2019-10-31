@@ -69,7 +69,10 @@ export default function Home(props){
     <div className='HomeWrapper'>
       <Search sendData={callbackFunction}/>
       <Chart prices={stockInfo} symbol={tickerSym} />
-      <News feed={newsfeed} />
+      {stockInfo.error ? 
+        (<News feed={newsfeed} show={false}/>) :
+        (<News feed={newsfeed} show={true}/>)
+      }
     </div>
   )
     
